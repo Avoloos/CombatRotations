@@ -54,7 +54,7 @@ namespace ReBot
                 if (CastSelf((int)MainHand, () => !HasAura((int)MainHand))) return true;
             if (CastSelf((int)OffHand, () => !HasAura((int)OffHand))) return true;
 
-            if (API.HasItem(OraliusWhisperingCrystal) && !HasAura(OraliusWhisperingCrystalBuff))
+            if (API.HasItem(OraliusWhisperingCrystal) && !HasAura(OraliusWhisperingCrystalBuff) && API.ItemCooldown(OraliusWhisperingCrystal) == 0)
             {
                 API.UseItem(OraliusWhisperingCrystal);
                 return true;
