@@ -71,7 +71,7 @@ namespace ReBot
             if (Cast("Kick", () => Target.IsCastingAndInterruptible())) return;
             UnitObject castingAddInRange = Adds.Where(x => x.IsInCombatRangeAndLoS).ToList().FirstOrDefault(x => x.IsCastingAndInterruptible());
             if (castingAddInRange != null)
-                if (Cast("Kick", () => true, castingAddInRange)) return;
+                if (Cast("Kick", castingAddInRange)) return;
 
             if (CastSelf("Evasion", () => TargettingMe && Me.HpLessThanOrElite(0.85))) return;
 
