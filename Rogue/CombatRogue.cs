@@ -91,9 +91,13 @@ namespace ReBot
             if (Cast("Revealing Strike", () => Energy >= 40 && !Target.HasAura("Revealing Strike"))) return;
 
             if (Adds.Where(x => x.IsInCombatRangeAndLoS).ToList().Count > 4)
+            {
                 if (Cast("Crimson Tempest", () => Energy >= 35 && (Me.ComboPoints == 5))) return;
-                else
-                    if (Cast("Eviscerate", () => Energy >= 35 && (Me.ComboPoints == 5))) return;
+            }
+            else
+            {
+                if (Cast("Eviscerate", () => Energy >= 35 && (Me.ComboPoints == 5))) return;
+            }
             if (Cast("Sinister Strike", () => Energy >= 50)) return;
         }
         public void RunToEnemy()
