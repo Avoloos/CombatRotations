@@ -39,8 +39,6 @@ namespace ReBot
             if (CastSelf("Lay on Hands", () => Me.HealthFraction <= 0.15 && !HasAura("Divine Shield") && !HasAura("Immunity"))) return;
             if (CastSelf("Divine Shield", () => !DisableDivineShield && Me.HealthFraction <= 0.1 && !HasAura("Immunity"))) return;
 
-            if (CastSelf("Flash of Light", () => Me.HealthFraction <= 0.75 && HasAura("Divine Shield") || Me.HealthFraction <= 0.4)) return;
-
             if (Cast("Rebuke", () => Target.IsCastingAndInterruptible())) return;
             if (Cast("Fist of Justice", () => Target.IsCastingAndInterruptible())) return;
 
