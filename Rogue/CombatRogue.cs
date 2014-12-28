@@ -10,7 +10,8 @@ namespace ReBot
     public enum MainPoison
     {
         WoundPoison = 8679,
-        InstantPoison = 157584
+        InstantPoison = 157584,
+        DeadlyPoison = 2823,
     }
     public enum SubPoison
     {
@@ -46,8 +47,11 @@ namespace ReBot
             {
                 if (!HasAura((int)MainHand))
                 {
-                    API.ExecuteMacro("/cast Deadly Poison");
-                    return true;
+                    if (!HasAura((int)MainPoison.DeadlyPoison))
+                    {
+                        API.ExecuteMacro("/cast Deadly Poison");
+                        return true;
+                    }
                 }
             }
             else
